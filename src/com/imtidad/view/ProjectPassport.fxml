@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" nodeOrientation="RIGHT_TO_LEFT"
+            styleClass="passport-root,passport-scroll" stylesheets="@../../../style.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.imtidad.controller.ProjectPassportController">
+    <content>
+        <VBox spacing="18" styleClass="passport-content">
+            <padding><Insets top="22" right="28" bottom="30" left="28"/></padding>
+            <children>
+                <HBox alignment="CENTER_RIGHT" spacing="12" styleClass="passport-brand-bar">
+                    <children>
+                        <ImageView fitHeight="42" fitWidth="64" preserveRatio="true">
+                            <image><Image url="@../../../images/IMTIDAD_logo.png"/></image>
+                        </ImageView>
+                        <VBox spacing="1">
+                            <children>
+                                <Label text="IMTIDAD | امتداد" styleClass="passport-brand-title"/>
+                                <Label text="جامعة العلوم والتكنولوجيا" styleClass="passport-brand-university"/>
+                            </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="lblStatus" text="مسودة" styleClass="passport-status-badge,passport-status-draft"/>
+                    </children>
+                </HBox>
+
+                <HBox alignment="TOP_RIGHT" spacing="18" styleClass="passport-hero-banner">
+                    <children>
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="بطاقة المشروع" styleClass="section-kicker"/>
+                                <Label fx:id="lblProjectTitle" text="عنوان المشروع" styleClass="passport-hero-title" wrapText="true"/>
+                                <Label fx:id="lblProjectType" text="نوع المشروع" styleClass="passport-type"/>
+                                <Label fx:id="lblActionHint" text="" styleClass="passport-hero-subtitle" wrapText="true"/>
+                            </children>
+                        </VBox>
+                        <VBox spacing="10" minWidth="250" prefWidth="280">
+                            <children>
+                                <VBox spacing="5" styleClass="passport-mini-card">
+                                    <children>
+                                        <Label text="وضع المشروع" styleClass="passport-mini-title"/>
+                                        <Label text="جاهز للاستعراض والتطوير" styleClass="passport-mini-value"/>
+                                    </children>
+                                </VBox>
+                                <HBox spacing="10">
+                                    <children>
+                                        <VBox spacing="5" styleClass="passport-mini-card" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label text="المرفقات" styleClass="passport-mini-title"/>
+                                                <Label text="صور / PDF / GitHub" styleClass="passport-mini-value"/>
+                                            </children>
+                                        </VBox>
+                                        <VBox spacing="5" styleClass="passport-mini-card" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label text="المسار" styleClass="passport-mini-title"/>
+                                                <Label text="تفاصيل + استكمال" styleClass="passport-mini-value"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <HBox alignment="TOP_RIGHT" spacing="18">
+                    <children>
+                        <VBox minWidth="300" prefWidth="340" spacing="10" styleClass="passport-card">
+                            <children>
+                                <Label text="صورة المشروع" styleClass="passport-section-title"/>
+                                <StackPane minHeight="210" prefHeight="230" styleClass="passport-cover-frame">
+                                    <children>
+                                        <ImageView fx:id="imgProjectCover" fitHeight="220" fitWidth="320" preserveRatio="true" smooth="true"/>
+                                        <VBox fx:id="coverPlaceholder" alignment="CENTER" spacing="8" mouseTransparent="true" styleClass="passport-cover-placeholder">
+                                            <children>
+                                                <ImageView fitHeight="70" fitWidth="100" opacity="0.55" preserveRatio="true">
+                                                    <image><Image url="@../../../images/IMTIDAD_logo.png"/></image>
+                                                </ImageView>
+                                                <Label text="لا توجد صورة للمشروع" styleClass="text-muted"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </StackPane>
+                                <FlowPane fx:id="imageThumbnails" hgap="8" vgap="8" prefWrapLength="320"/>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="12" styleClass="passport-card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="معلومات المشروع" styleClass="passport-section-title"/>
+                                <GridPane hgap="18" vgap="12">
+                                    <columnConstraints>
+                                        <ColumnConstraints minWidth="125" prefWidth="145"/>
+                                        <ColumnConstraints hgrow="ALWAYS"/>
+                                    </columnConstraints>
+                                    <children>
+                                        <Label text="صاحب المشروع" styleClass="passport-field-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                        <Label fx:id="lblOwner" text="—" wrapText="true" styleClass="passport-field-value" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                        <Label fx:id="lblStudentNumberTitle" text="الرقم الجامعي" styleClass="passport-field-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                        <Label fx:id="lblStudentNumber" text="—" wrapText="true" styleClass="passport-field-value" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                        <Label text="الدكتور المراجع" styleClass="passport-field-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                        <Label fx:id="lblReviewer" text="—" wrapText="true" styleClass="passport-field-value" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                                        <Label text="القسم" styleClass="passport-field-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                        <Label fx:id="lblDepartment" text="—" wrapText="true" styleClass="passport-field-value" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                                        <Label text="السنة الأكاديمية" styleClass="passport-field-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                                        <Label fx:id="lblAcademicYear" text="—" wrapText="true" styleClass="passport-field-value" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                                        <Label text="المقرر / الفصل" styleClass="passport-field-label" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                                        <Label fx:id="lblCourseSemester" text="—" wrapText="true" styleClass="passport-field-value" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <VBox spacing="10" styleClass="passport-card">
+                    <children>
+                        <Label text="مشكلة المشروع وأهدافه" styleClass="passport-section-title"/>
+                        <Label fx:id="lblProblemStatement" text="—" wrapText="true" styleClass="passport-body-text"/>
+                    </children>
+                </VBox>
+
+                <HBox spacing="18">
+                    <children>
+                        <VBox spacing="9" styleClass="passport-card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="التقنيات" styleClass="passport-section-title"/>
+                                <FlowPane fx:id="technologyChips" hgap="7" vgap="7" prefWrapLength="360"/>
+                                <Label fx:id="lblTechStack" text="—" managed="false" visible="false"/>
+                            </children>
+                        </VBox>
+                        <VBox spacing="9" styleClass="passport-card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="أعضاء الفريق" styleClass="passport-section-title"/>
+                                <Label fx:id="lblTeamMembers" text="—" wrapText="true" styleClass="passport-body-text"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <VBox spacing="10" styleClass="passport-card">
+                    <children>
+                        <Label text="مستودع GitHub" styleClass="passport-section-title"/>
+                        <Hyperlink fx:id="lnkRepository" text="لم يتم إضافة رابط للمستودع" onAction="#openRepository" styleClass="passport-link" wrapText="true"/>
+                    </children>
+                </VBox>
+
+                <VBox spacing="10" styleClass="passport-card">
+                    <children>
+                        <Label text="المرفقات" styleClass="passport-section-title"/>
+                        <Label fx:id="lblNoAttachments" text="لا توجد مرفقات." styleClass="text-muted"/>
+                        <VBox fx:id="documentList" spacing="7"/>
+                    </children>
+                </VBox>
+
+                <VBox fx:id="lineageSection" spacing="10" styleClass="passport-card" visible="false" managed="false">
+                    <children>
+                        <HBox alignment="CENTER_RIGHT">
+                            <children>
+                                <Label text="شجرة الامتداد" styleClass="passport-section-title"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Label text="الأصل ← الامتدادات المعتمدة" styleClass="text-muted"/>
+                            </children>
+                        </HBox>
+                        <Label text="تظهر هذه الشجرة فقط عندما يكون للمشروع امتداد معتمد مرتبط به." styleClass="text-muted" wrapText="true"/>
+                        <TreeView fx:id="treeLineage" prefHeight="180" styleClass="lineage-tree"/>
+                    </children>
+                </VBox>
+
+                <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="passport-actions">
+                    <children>
+                        <Button fx:id="btnEditProject" text="✎  تعديل المشروع" onAction="#handleEditProject" styleClass="btn-outline,passport-action-button"/>
+                        <Button fx:id="btnRequestContinuation" text="↗  طلب استكمال المشروع" onAction="#handleRequestContinuation" styleClass="btn-accent,passport-action-button"/>
+                        <Button fx:id="btnSubmitForReview" text="✓  إرسال للمراجعة" onAction="#handleSubmitForReview" styleClass="btn-primary,passport-action-button"/>
+                        <Button text="العودة للمشاريع  →" onAction="#handleBackToCatalog" styleClass="btn-secondary,passport-action-button"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </content>
+</ScrollPane>

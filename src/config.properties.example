@@ -1,0 +1,10 @@
+# IMTIDAD Database Configuration Template
+# 1. Copy this file to config.properties
+# 2. Fill in your real Oracle credentials
+# 3. Do NOT commit config.properties to version control
+
+# Optional: override with environment variables ORACLE_URL, ORACLE_USER, ORACLE_PASSWORD
+
+db.url=jdbc:oracle:thin:@localhost:1521:XE
+db.user=SYSTEM
+db.password=YOUR_PASSWORD_HERE

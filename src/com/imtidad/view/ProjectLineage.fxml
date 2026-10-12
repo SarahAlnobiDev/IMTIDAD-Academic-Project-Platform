@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="760.0" prefWidth="1280.0" stylesheets="@../../../style.css" styleClass="root,dashboard-root"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.imtidad.controller.ProjectLineageController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="dashboard-header">
+            <padding><Insets top="16" right="28" bottom="16" left="28"/></padding>
+            <children>
+                <VBox spacing="2">
+                    <children>
+                        <Label text="IMTIDAD" styleClass="header-brand"/>
+                        <Label text="Lineage &amp; continuation workspace" styleClass="header-caption"/>
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblCurrentUser" text="User" styleClass="header-caption"/>
+                <Button text="تحديث" onAction="#refreshWorkspace" styleClass="btn-ghost"/>
+                <Button text="العودة للمشاريع" onAction="#handleBackToCatalog" styleClass="btn-ghost"/>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="16" styleClass="dashboard-content">
+            <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="16" styleClass="lineage-hero-card">
+                    <children>
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="الاستكمال وشجرة الامتداد" styleClass="dashboard-title"/>
+                                <Label text="حافظ على المشروع الأصلي وأنشئ طلب امتداد مستقل مرتبط به بعلاقة واضحة." styleClass="subtitle"/>
+                            </children>
+                        </VBox>
+                        <Label fx:id="lblLineageState" text="جاري التحميل..." styleClass="text-muted"/>
+                    </children>
+                </HBox>
+
+                <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS" styleClass="lineage-split">
+                    <items>
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="dashboard-scroll,lineage-left-scroll">
+                            <content>
+                                <VBox spacing="14" styleClass="lineage-pane">
+                                    <children>
+                                <VBox spacing="8" styleClass="card">
+                                    <children>
+                                        <Label text="المشروع الأصلي" styleClass="field-label"/>
+                                        <ComboBox fx:id="cmbSourceProject" promptText="اختر مشروعاً لعرض امتداداته" maxWidth="Infinity"/>
+                                        <Label fx:id="lblSourceTitle" text="لا يوجد مشروع محدد" styleClass="title-lg" wrapText="true"/>
+                                        <Label fx:id="lblSourceMeta" text="" styleClass="text-muted" wrapText="true"/>
+                                    </children>
+                                </VBox>
+                                <VBox spacing="8" styleClass="card" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT">
+                                            <children>
+                                                <Label text="شجرة المشروع" styleClass="title-md"/>
+                                                <Region HBox.hgrow="ALWAYS"/>
+                                                <Label text="الأصل → الاستكمالات المعتمدة" styleClass="text-muted"/>
+                                            </children>
+                                        </HBox>
+                                        <TreeView fx:id="treeLineage" VBox.vgrow="ALWAYS" styleClass="lineage-tree"/>
+                                    </children>
+                                </VBox>
+                                <VBox spacing="8" styleClass="card" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <Label text="طلباتي" styleClass="title-md"/>
+                                        <TableView fx:id="tblMyRequests" prefHeight="190" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="colMyRequestId" text="#" prefWidth="55"/>
+                                                <TableColumn fx:id="colMyRequestProject" text="الأصل" prefWidth="145"/>
+                                                <TableColumn fx:id="colMyRequestTitle" text="الامتداد" prefWidth="180"/>
+                                                <TableColumn fx:id="colMyRequestStatus" text="الحالة" prefWidth="100"/>
+                                                <TableColumn fx:id="colMyRequestDate" text="التاريخ" prefWidth="125"/>
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="dashboard-scroll,lineage-right-scroll">
+                            <content>
+                                <VBox spacing="14" styleClass="continuation-form-card">
+                                    <children>
+                                        <VBox spacing="4">
+                                            <children>
+                                                <Label text="طلب استكمال جديد" styleClass="title-lg"/>
+                                                <Label text="أنشئ فرعاً مستقلاً دون تعديل سجل المشروع الأصلي." styleClass="text-muted" wrapText="true"/>
+                                            </children>
+                                        </VBox>
+                                        <Separator/>
+                                        <Label text="عنوان الامتداد المقترح" styleClass="field-label"/>
+                                        <TextField fx:id="txtProposedTitle" promptText="مثال: تطبيق جوال للمشروع الأصلي"/>
+                                        <Label text="نوع العلاقة" styleClass="field-label"/>
+                                        <ComboBox fx:id="cmbRelationType" maxWidth="Infinity"/>
+                                        <Label text="هدف وخطة الاستكمال" styleClass="field-label"/>
+                                        <TextArea fx:id="txtGoals" promptText="اشرح ما الذي ستضيفه، وما المشكلة الجديدة التي سيعالجها هذا الامتداد..." prefRowCount="5" wrapText="true"/>
+                                        <Label text="الخطة الزمنية المتوقعة" styleClass="field-label"/>
+                                        <TextField fx:id="txtTimeline" promptText="مثال: 8 أسابيع / فصل دراسي"/>
+                                        <Label text="المهارات والتقنيات المطلوبة" styleClass="field-label"/>
+                                        <TextField fx:id="txtSkills" promptText="JavaFX, Oracle, REST API..."/>
+                                        <Label text="رابط المستودع (اختياري)" styleClass="field-label"/>
+                                        <TextField fx:id="txtRepositoryUrl" promptText="https://github.com/..."/>
+                                        <VBox spacing="8" styleClass="upload-area">
+                                            <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+                                            <children>
+                                                <Label text="ملف داعم للطلب (اختياري)" styleClass="field-label"/>
+                                                <Label fx:id="lblAttachment" text="لا يوجد ملف مرفق" styleClass="text-muted" wrapText="true"/>
+                                                <HBox spacing="8">
+                                                    <children>
+                                                        <Button text="اختيار ملف" onAction="#chooseAttachment" styleClass="btn-outline"/>
+                                                        <Button text="إزالة" onAction="#clearAttachment" styleClass="btn-secondary"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                                            <children>
+                                                <Button fx:id="btnSubmitRequest" text="إرسال طلب الاستكمال" onAction="#submitContinuationRequest" styleClass="btn-primary"/>
+                                            </children>
+                                        </HBox>
+                                        <VBox spacing="5" styleClass="info-box">
+                                            <children>
+                                                <Label text="ماذا يحدث بعد الإرسال؟" styleClass="field-label"/>
+                                                <Label text="يذهب الطلب إلى طابور المراجعة. عند القبول ينشئ النظام مشروعاً فرعياً مستقلاً ويربطه بالأصل في شجرة الامتداد." wrapText="true"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </items>
+                </SplitPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

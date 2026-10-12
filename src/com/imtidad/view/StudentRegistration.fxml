@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<HBox minHeight="620" minWidth="760" prefHeight="720" prefWidth="980" stylesheets="@../../../style.css" styleClass="root,login-shell,auth-dark-shell" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.imtidad.controller.StudentRegistrationController">
+    <children>
+        <VBox alignment="CENTER" minWidth="460" prefWidth="560" spacing="16" styleClass="login-form-pane" HBox.hgrow="ALWAYS">
+            <padding><Insets top="34" right="50" bottom="34" left="50"/></padding>
+            <children>
+                <HBox alignment="CENTER_RIGHT" spacing="12" maxWidth="420">
+                    <children>
+                        <StackPane styleClass="brand-icon-shell">
+                            <children>
+                                <ImageView fitHeight="42" fitWidth="42" preserveRatio="true">
+                                    <image><Image url="@../../../images/IMTIDAD_logo.png"/></image>
+                                </ImageView>
+                            </children>
+                        </StackPane>
+                        <VBox spacing="2" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="IMTIDAD | امتداد" styleClass="brand-kicker"/>
+                                <Label text="إنشاء حساب طالب جديد" styleClass="subtitle"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <VBox maxWidth="430" spacing="10" styleClass="login-form">
+                    <children>
+                        <VBox spacing="6">
+                            <children>
+                                <Label text="ابدأ رحلتك الأكاديمية" styleClass="login-title"/>
+                                <Label text="سجّل بياناتك مرة واحدة، وبعدها يمكنك الدخول وإدارة مشاريعك بسهولة." wrapText="true" styleClass="subtitle"/>
+                            </children>
+                        </VBox>
+
+                        <Label text="الاسم الكامل" styleClass="field-label"/>
+                        <TextField fx:id="txtFullName" promptText="أدخل اسمك الكامل" maxWidth="Infinity"/>
+                        <Label text="الرقم الجامعي" styleClass="field-label"/>
+                        <TextField fx:id="txtStudentNumber" promptText="مثال: 20241234" maxWidth="Infinity"/>
+                        <Label text="البريد الجامعي" styleClass="field-label"/>
+                        <TextField fx:id="txtEmail" promptText="you@university.edu" maxWidth="Infinity"/>
+                        <Label text="القسم" styleClass="field-label"/>
+                        <ComboBox fx:id="cmbDepartment" promptText="اختر القسم" maxWidth="Infinity"/>
+                        <Label text="كلمة المرور" styleClass="field-label"/>
+                        <PasswordField fx:id="txtPassword" promptText="8 خانات على الأقل" maxWidth="Infinity"/>
+                        <Label text="تأكيد كلمة المرور" styleClass="field-label"/>
+                        <PasswordField fx:id="txtConfirmPassword" promptText="أعد كتابة كلمة المرور" maxWidth="Infinity"/>
+                        <Label fx:id="lblState" managed="false" visible="false" wrapText="true" styleClass="login-state"/>
+                        <Button text="إنشاء حساب طالب" onAction="#register" maxWidth="Infinity" styleClass="btn-primary,login-action"/>
+                        <Button text="العودة لتسجيل الدخول  →" onAction="#backToLogin" maxWidth="Infinity" styleClass="btn-outline,login-action"/>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+
+        <StackPane minWidth="320" prefWidth="440" styleClass="login-showcase" HBox.hgrow="ALWAYS">
+            <children>
+                <VBox maxWidth="360" spacing="18" styleClass="showcase-content">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <children>
+                                <ImageView fitHeight="46" fitWidth="46" preserveRatio="true">
+                                    <image><Image url="@../../../images/IMTIDAD_logo.png"/></image>
+                                </ImageView>
+                                <Label text="امتداد IMTIDAD" styleClass="brand-kicker"/>
+                            </children>
+                        </HBox>
+                        <Label text="سجل أكاديمي مستدام يبدأ من هنا." wrapText="true" styleClass="showcase-title"/>
+                        <Label text="أنشئ حسابك، ارفع مشاريعك، واسمح للأفكار أن تمتد للدفعات التالية ضمن تجربة عربية حديثة." wrapText="true" styleClass="showcase-subtitle"/>
+
+                        <VBox spacing="10" styleClass="auth-note-card">
+                            <children>
+                                <Label text="ماذا ستحصل بعد التسجيل؟" styleClass="auth-note-title"/>
+                                <Label text="• إضافة مشروع جديد\n• حفظ المسودات\n• رفع الصور والتقارير\n• إرسال المشروع للمراجعة\n• متابعة طلبات الاستكمال" wrapText="true" styleClass="auth-note-text"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</HBox>

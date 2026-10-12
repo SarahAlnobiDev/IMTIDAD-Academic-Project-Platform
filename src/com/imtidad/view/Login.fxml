@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<HBox minHeight="620" minWidth="900" prefHeight="720" prefWidth="1180" stylesheets="@../../../style.css" styleClass="root,login-shell" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.imtidad.controller.LoginController">
+ <children>
+  <!-- الجزء الأيسر: نموذج تسجيل الدخول -->
+  <VBox alignment="CENTER" minWidth="440" prefWidth="530" spacing="18" styleClass="login-form-pane" HBox.hgrow="ALWAYS">
+   <padding><Insets top="42" right="52" bottom="42" left="52"/></padding>
+   <children>
+    <VBox spacing="6">
+     <children>
+      <Label text="مرحباً بك 👋" styleClass="login-title"/>
+      <Label text="سجل الدخول لإدارة مشاريعك الأكاديمية." styleClass="subtitle"/>
+     </children>
+    </VBox>
+    <VBox maxWidth="420" spacing="10" styleClass="login-form">
+     <children>
+      <Label text="اسم المستخدم أو البريد الإلكتروني" styleClass="field-label"/>
+      <TextField fx:id="txtUsername" promptText="اسم المستخدم أو البريد" maxWidth="Infinity"/>
+      <Label text="كلمة المرور" styleClass="field-label"/>
+      <PasswordField fx:id="txtPassword" promptText="أدخل كلمة المرور" maxWidth="Infinity"/>
+      <Label text="نوع الحساب" styleClass="field-label"/>
+      <ComboBox fx:id="cmbRole" promptText="اختر نوع الحساب" maxWidth="Infinity"/>
+      <Label fx:id="lblLoginState" managed="false" visible="false" wrapText="true" styleClass="login-state"/>
+      <Button fx:id="btnLogin" text="تسجيل الدخول" onAction="#handleLogin" maxWidth="Infinity" styleClass="btn-primary,login-action"/>
+      <HBox alignment="CENTER" spacing="10">
+       <children>
+        <Separator HBox.hgrow="ALWAYS"/>
+        <Label text="أو" styleClass="text-muted"/>
+        <Separator HBox.hgrow="ALWAYS"/>
+       </children>
+      </HBox>
+      <Button fx:id="btnGoogleLogin" text="G   المتابعة باستخدام Google" onAction="#handleGoogleLogin" maxWidth="Infinity" styleClass="btn-google,login-action"/>
+      <Button text="إنشاء حساب طالب جديد" onAction="#openStudentRegistration" maxWidth="Infinity" styleClass="btn-outline,login-action"/>
+     </children>
+    </VBox>
+   </children>
+  </VBox>
+
+  <!-- الجزء الأيمن: لوحة العرض والهوية والشعار -->
+  <StackPane minWidth="430" prefWidth="590" styleClass="login-showcase" HBox.hgrow="ALWAYS">
+   <children>
+    <VBox maxWidth="440" spacing="20" styleClass="showcase-content">
+     <children>
+      <!-- إضافة الشعار الرسمي للمشروع -->
+      <HBox alignment="CENTER_LEFT" spacing="12">
+       <children>
+
+        <ImageView fitHeight="48" fitWidth="48" preserveRatio="true">
+         <image>
+          <Image url="@../../../images/IMTIDAD_logo.png"/>
+         </image>
+        </ImageView>
+
+        <Label text="امتداد IMTIDAD" styleClass="brand-kicker"/>
+       </children>
+      </HBox>
+
+      <Label text="بيئة العمل الهادئة والمترابطة للابتكار الأكاديمي." wrapText="true" styleClass="showcase-title"/>
+      <Label text="اجمع المشاريع والمراجعات والتطويرات المستقبلية في واجهة واحدة واضحة." wrapText="true" styleClass="showcase-subtitle"/>
+
+      <!-- بطاقة الإحصائيات (86%) -->
+      <VBox spacing="12" styleClass="glass-card">
+       <children>
+        <HBox alignment="CENTER_LEFT">
+         <children>
+          <Label text="جاهزية المشاريع" styleClass="glass-title" HBox.hgrow="ALWAYS"/>
+          <Label text="86%" styleClass="glass-value"/>
+         </children>
+        </HBox>
+        <ProgressBar progress="0.86" maxWidth="Infinity" styleClass="showcase-progress"/>
+        <HBox spacing="8">
+         <children>
+          <Label text="12 مشروع نشط" styleClass="showcase-chip"/>
+          <Label text="3 مراجعات اليوم" styleClass="showcase-chip"/>
+         </children>
+        </HBox>
+       </children>
+      </VBox>
+     </children>
+    </VBox>
+   </children>
+  </StackPane>
+ </children>
+</HBox>

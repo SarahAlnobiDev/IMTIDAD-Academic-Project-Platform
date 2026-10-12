@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="760.0" prefWidth="1280.0" stylesheets="@../../../style.css" styleClass="root,dashboard-root"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.imtidad.controller.ReviewQueueController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="dashboard-header">
+            <padding><Insets top="16" right="28" bottom="16" left="28"/></padding>
+            <children>
+                <VBox spacing="2">
+                    <children>
+                        <Label text="IMTIDAD" styleClass="header-brand"/>
+                        <Label text="Review &amp; quality workspace" styleClass="header-caption"/>
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblReviewerName" text="Reviewer" styleClass="header-caption"/>
+                <Button text="تحديث" onAction="#refreshAll" styleClass="btn-ghost"/>
+                <Button text="العودة للمشاريع" onAction="#handleBackToCatalog" styleClass="btn-ghost"/>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="16" styleClass="dashboard-content">
+            <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="16" styleClass="review-hero-card">
+                    <children>
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="طابور المراجعة" styleClass="dashboard-title"/>
+                                <Label text="تحقق من جودة المشاريع المرسلة إليك واتخذ قرار المراجعة الأكاديمية." styleClass="subtitle"/>
+                            </children>
+                        </VBox>
+                        <Label fx:id="lblReviewState" text="جاري التحميل..." styleClass="text-muted"/>
+                    </children>
+                </HBox>
+
+                <BorderPane>
+                    <top>
+                        <HBox spacing="10" styleClass="dashboard-toolbar">
+                            <children>
+                                <TextField fx:id="txtProjectSearch" promptText="ابحث بالعنوان أو المالك أو رقم المشروع" HBox.hgrow="ALWAYS"/>
+                                <ComboBox fx:id="cmbProjectTypeFilter" prefWidth="170" promptText="نوع المشروع"/>
+                            </children>
+                        </HBox>
+                    </top>
+                    <center>
+                        <SplitPane dividerPositions="0.56" orientation="HORIZONTAL" styleClass="review-split">
+                            <items>
+                                <VBox spacing="10" styleClass="workspace-pane">
+                                    <children>
+                                        <Label text="المشاريع بانتظار قرار" styleClass="title-md"/>
+                                        <TableView fx:id="tblProjects" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="colProjectId" text="#" prefWidth="64"/>
+                                                <TableColumn fx:id="colProjectTitle" text="المشروع" prefWidth="235"/>
+                                                <TableColumn fx:id="colProjectType" text="النوع" prefWidth="110"/>
+                                                <TableColumn fx:id="colProjectOwner" text="المالك" prefWidth="115"/>
+                                                <TableColumn fx:id="colProjectDate" text="التاريخ" prefWidth="135"/>
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                                <ScrollPane fitToWidth="true" styleClass="dashboard-scroll">
+                                    <content>
+                                        <VBox spacing="14" styleClass="review-detail-card">
+                                            <children>
+                                                <VBox spacing="5">
+                                                    <children>
+                                                        <Label fx:id="lblSelectedProjectTitle" text="اختر مشروعاً من القائمة" styleClass="title-lg" wrapText="true"/>
+                                                        <Label fx:id="lblSelectedProjectMeta" text="ستظهر بيانات المشروع هنا قبل اتخاذ القرار." styleClass="text-muted" wrapText="true"/>
+                                                    </children>
+                                                </VBox>
+                                                <Separator/>
+                                                <Label text="وصف المشكلة" styleClass="field-label"/>
+                                                <TextArea fx:id="txtProjectProblem" editable="false" prefRowCount="4" wrapText="true"/>
+                                                <Label text="قائمة التحقق من الجودة" styleClass="title-md"/>
+                                                <VBox spacing="9" styleClass="checklist-card">
+                                                    <children>
+                                                        <CheckBox fx:id="chkProblemClarity" text="المشكلة والهدف موضحان بوضوح"/>
+                                                        <CheckBox fx:id="chkDatasetsValid" text="البيانات أو الأدلة المرفقة صالحة"/>
+                                                        <CheckBox fx:id="chkOwnershipProof" text="الملكية ونسبة العمل موثقتان"/>
+                                                        <CheckBox fx:id="chkFileIntegrity" text="الملفات سليمة وقابلة للاستخدام"/>
+                                                    </children>
+                                                </VBox>
+                                                <Label text="ملاحظات المراجع" styleClass="field-label"/>
+                                                <TextArea fx:id="txtReviewComments" promptText="أضف ملاحظات واضحة عند طلب التعديل أو الرفض..." prefRowCount="4" wrapText="true"/>
+                                                <HBox spacing="10" alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Button fx:id="btnRejectProject" text="رفض" onAction="#rejectProject" styleClass="btn-danger"/>
+                                                        <Button fx:id="btnRequestChanges" text="إعادة للتعديل" onAction="#requestProjectChanges" styleClass="btn-accent"/>
+                                                        <Button fx:id="btnApproveProject" text="قبول المشروع" onAction="#approveProject" styleClass="btn-primary"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                </ScrollPane>
+                            </items>
+                        </SplitPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

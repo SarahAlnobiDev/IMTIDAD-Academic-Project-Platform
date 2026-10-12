@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="720.0" prefWidth="900.0" nodeOrientation="RIGHT_TO_LEFT"
+            styleClass="root,imt-wizard-root" stylesheets="@../../../style.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.imtidad.controller.AddProjectWizardController">
+    <top>
+        <VBox spacing="10.0" styleClass="wizard-header" BorderPane.alignment="CENTER">
+            <padding><Insets bottom="18" left="28" right="28" top="18"/></padding>
+            <children>
+                <HBox alignment="CENTER_RIGHT" spacing="12" styleClass="wizard-top-brand">
+                    <children>
+                        <StackPane styleClass="brand-icon-shell">
+                            <children>
+                                <ImageView fitHeight="36" fitWidth="36" preserveRatio="true">
+                                    <image><Image url="@../../../images/IMTIDAD_logo.png"/></image>
+                                </ImageView>
+                            </children>
+                        </StackPane>
+                        <VBox spacing="1">
+                            <children>
+                                <Label text="IMTIDAD | امتداد" styleClass="wizard-top-title"/>
+                                <Label text="معالج ذكي لتسجيل المشروع خطوة بخطوة" styleClass="wizard-top-subtitle"/>
+                            </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="حفظ كمسودة أولاً" styleClass="wizard-step-pill"/>
+                        <Label text="ثم تعديل أو إرسال للمراجعة" styleClass="wizard-step-pill"/>
+                    </children>
+                </HBox>
+                <Label fx:id="lblWizardTitle" styleClass="title-lg" text="إضافة مشروع جديد — امتداد"/>
+                <Label fx:id="lblWizardSubtitle" styleClass="subtitle"
+                       text="أدخل بيانات المشروع خطوة بخطوة، وسيُحفظ كمسودة قبل إضافة المرفقات."/>
+                <HBox alignment="CENTER" spacing="6.0" styleClass="steps-bar">
+                    <children>
+                        <Label fx:id="step1Indicator" styleClass="step-indicator,step-indicator-active" text="١. النوع"/>
+                        <Label styleClass="text-muted" text="—"/>
+                        <Label fx:id="step2Indicator" styleClass="step-indicator" text="٢. البيانات"/>
+                        <Label styleClass="text-muted" text="—"/>
+                        <Label fx:id="step3Indicator" styleClass="step-indicator" text="٣. الفريق"/>
+                        <Label styleClass="text-muted" text="—"/>
+                        <Label fx:id="step4Indicator" styleClass="step-indicator" text="٤. التقنيات"/>
+                        <Label styleClass="text-muted" text="—"/>
+                        <Label fx:id="step5Indicator" styleClass="step-indicator" text="٥. الروابط والمرفقات"/>
+                        <Label styleClass="text-muted" text="—"/>
+                        <Label fx:id="step6Indicator" styleClass="step-indicator" text="٦. المعاينة"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fx:id="wizardScrollPane" fitToWidth="true" hbarPolicy="NEVER" pannable="true"
+                    styleClass="wizard-scroll" BorderPane.alignment="CENTER">
+            <content>
+                <VBox fx:id="wizardContentArea" spacing="15.0">
+                    <padding><Insets bottom="28" left="36" right="36" top="24"/></padding>
+                    <children>
+                        <VBox fx:id="step1Container" spacing="14.0" styleClass="step-container">
+                            <children>
+                                <Label styleClass="title-md" text="الخطوة ١: نوع المشروع"/>
+                                <Label styleClass="text-muted" text="اختر نوع المشروع الأكاديمي الذي تريد توثيقه."/>
+                                <fx:define><ToggleGroup fx:id="projectTypeGroup"/></fx:define>
+                                <RadioButton fx:id="rbtnGraduationProject" mnemonicParsing="false"
+                                             onAction="#handleProjectTypeChanged" text="مشروع تخرج"
+                                             toggleGroup="$projectTypeGroup"/>
+                                <RadioButton fx:id="rbtnCourseProject" mnemonicParsing="false"
+                                             onAction="#handleProjectTypeChanged" text="مشروع مقرر دراسي"
+                                             toggleGroup="$projectTypeGroup"/>
+                            </children>
+                        </VBox>
+
+                        <VBox fx:id="step2Container" managed="false" spacing="14.0" styleClass="step-container" visible="false">
+                            <children>
+                                <Label styleClass="title-md" text="الخطوة ٢: البيانات الأساسية"/>
+
+                                <VBox spacing="8" styleClass="wizard-owner-card">
+                                    <children>
+                                        <Label styleClass="wizard-section-label" text="صاحب المشروع"/>
+                                        <HBox spacing="24">
+                                            <children>
+                                                <VBox spacing="3" HBox.hgrow="ALWAYS">
+                                                    <Label styleClass="text-muted" text="اسم الطالب"/>
+                                                    <Label fx:id="lblCurrentStudentName" styleClass="wizard-readonly-value" text="—"/>
+                                                </VBox>
+                                                <VBox spacing="3" HBox.hgrow="ALWAYS">
+                                                    <Label styleClass="text-muted" text="الرقم الجامعي"/>
+                                                    <Label fx:id="lblCurrentStudentNumber" styleClass="wizard-readonly-value" text="—"/>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+                                <Label styleClass="wizard-field-label" text="رقم المشروع"/>
+                                <TextField fx:id="txtProjectId" editable="false" styleClass="readonly-field" promptText="يُنشأ تلقائياً"/>
+
+                                <Label styleClass="wizard-field-label" text="عنوان المشروع *"/>
+                                <TextField fx:id="txtProjectTitle" promptText="أدخل عنوان المشروع"/>
+
+                                <Label styleClass="wizard-field-label" text="مشكلة المشروع وأهدافه"/>
+                                <TextArea fx:id="txtProjectProblem" prefHeight="95" wrapText="true" promptText="اكتب وصفاً واضحاً للمشكلة والأهداف الرئيسية"/>
+
+                                <HBox spacing="14">
+                                    <children>
+                                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                                            <Label styleClass="wizard-field-label" text="القسم *"/>
+                                            <ComboBox fx:id="cmbDepartment" editable="false" maxWidth="Infinity" promptText="اختر القسم"/>
+                                        </VBox>
+                                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                                            <Label styleClass="wizard-field-label" text="السنة الأكاديمية *"/>
+                                            <ComboBox fx:id="cmbAcademicYear" editable="false" maxWidth="Infinity" promptText="اختر السنة الأكاديمية"/>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+
+                                <Label styleClass="wizard-field-label" text="الدكتور المراجع / المشرف الأكاديمي *"/>
+                                <ComboBox fx:id="cmbReviewer" maxWidth="Infinity" promptText="اختر الدكتور من الحسابات المعتمدة"/>
+
+                                <VBox fx:id="courseFieldsBox" spacing="12" managed="false" visible="false">
+                                    <children>
+                                        <HBox spacing="14">
+                                            <children>
+                                                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                                                    <Label styleClass="wizard-field-label" text="اسم المقرر *"/>
+                                                    <ComboBox fx:id="cmbCourse" editable="false" maxWidth="Infinity" promptText="اختر المقرر"/>
+                                                </VBox>
+                                                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                                                    <Label styleClass="wizard-field-label" text="الفصل الدراسي *"/>
+                                                    <ComboBox fx:id="cmbSemester" editable="false" maxWidth="Infinity" promptText="اختر الفصل"/>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+
+                        <VBox fx:id="step3Container" managed="false" spacing="14.0" styleClass="step-container" visible="false">
+                            <children>
+                                <Label styleClass="title-md" text="الخطوة ٣: فريق المشروع"/>
+                                <Label styleClass="text-muted" text="أضف أسماء أعضاء الفريق إن وجدوا. صاحب المشروع مرتبط تلقائياً بالحساب الحالي."/>
+                                <HBox spacing="10">
+                                    <children>
+                                        <TextField fx:id="txtTeamMembers" promptText="اسم عضو الفريق" HBox.hgrow="ALWAYS"/>
+                                        <Button fx:id="btnAddMember" onAction="#handleAddMember" styleClass="btn-primary" text="＋  إضافة عضو"/>
+                                    </children>
+                                </HBox>
+                                <TextArea fx:id="txtTeamListDisplay" editable="false" prefHeight="110" wrapText="true" promptText="لا يوجد أعضاء إضافيون بعد"/>
+                            </children>
+                        </VBox>
+
+                        <VBox fx:id="step4Container" managed="false" spacing="14.0" styleClass="step-container" visible="false">
+                            <children>
+                                <Label styleClass="title-md" text="الخطوة ٤: التقنيات المستخدمة"/>
+                                <Label styleClass="text-muted" text="اكتب التقنيات مفصولة بفواصل، مثل: Java, JavaFX, Oracle DB"/>
+                                <TextField fx:id="txtTechStack" promptText="Java, JavaFX, Oracle DB"/>
+                                <Label styleClass="wizard-note" text="عند الانتقال للخطوة التالية سيُحفظ المشروع تلقائياً كمسودة للحصول على رقم مشروع ثابت." wrapText="true"/>
+                            </children>
+                        </VBox>
+
+                        <VBox fx:id="step5Container" managed="false" spacing="14.0" styleClass="step-container" visible="false">
+                            <children>
+                                <Label styleClass="title-md" text="الخطوة ٥: رابط المستودع والمرفقات"/>
+                                <Label styleClass="wizard-field-label" text="رابط مستودع GitHub *"/>
+                                <TextField fx:id="txtRepoUrl" promptText="https://github.com/username/project"/>
+                                <Label styleClass="text-muted" wrapText="true" text="الكود وملفات المشروع البرمجية تبقى في GitHub. هنا نرفق فقط التقرير أو صور واجهات المشروع."/>
+
+                                <HBox alignment="CENTER_RIGHT" spacing="12">
+                                    <children>
+                                        <Button fx:id="btnUploadFile" onAction="#handleUploadFile" styleClass="btn-outline,wizard-upload-button" text="＋ إضافة تقرير أو صورة"/>
+                                        <Label fx:id="lblDraftSaveState" styleClass="wizard-saved-state" text=""/>
+                                    </children>
+                                </HBox>
+                                <ListView fx:id="lstAttachments" prefHeight="125" styleClass="wizard-attachments-list"/>
+                                <Label styleClass="text-muted" text="الأنواع المسموحة: PDF، PNG، JPG، JPEG، DOC، DOCX"/>
+                            </children>
+                        </VBox>
+
+                        <VBox fx:id="step6Container" managed="false" spacing="14.0" styleClass="step-container" visible="false">
+                            <children>
+                                <Label styleClass="title-md" text="الخطوة ٦: المعاينة والحفظ"/>
+                                <Label styleClass="text-accent" text="راجع البيانات قبل حفظ المسودة النهائية."/>
+                                <TextArea fx:id="txtPreviewSummary" editable="false" prefHeight="250" wrapText="true"/>
+                                <HBox alignment="CENTER_RIGHT" spacing="8" styleClass="info-box">
+                                    <children>
+                                        <Label text="💡"/>
+                                        <Label wrapText="true" text="بعد الحفظ يمكنك فتح بطاقة المشروع وتعديل المسودة من زر «تعديل المشروع»، ثم إرسالها للمراجعة عند اكتمالها."/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="12" styleClass="wizard-footer" BorderPane.alignment="CENTER">
+            <padding><Insets bottom="14" left="28" right="28" top="14"/></padding>
+            <children>
+                <Button fx:id="btnBack" disable="true" onAction="#handleBackStep" styleClass="btn-secondary" text="السابق"/>
+                <Button fx:id="btnNext" onAction="#handleNextStep" styleClass="btn-primary" text="التالي"/>
+                <Button fx:id="btnSubmitDraft" managed="false" visible="false" onAction="#handleSaveButtonAction" styleClass="btn-primary" text="حفظ المشروع"/>
+                <Button fx:id="btnContinuationShortcut" onAction="#openContinuationRequests" styleClass="btn-outline" text="↗  طلب استكمال مشروع سابق"/>
+                <Button fx:id="btnCancel" onAction="#handleCancel" styleClass="btn-outline" text="إغلاق"/>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
