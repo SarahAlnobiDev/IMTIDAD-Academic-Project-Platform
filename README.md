@@ -2,12 +2,14 @@
 
 # IMTIDAD | امتداد
 
-### University Student Project Knowledge & Continuity Platform
+### 🎓 University Student Project Knowledge & Continuity Platform
 
-**Because great projects deserve a future beyond submission.**
+**Beyond Submission, Knowledge Continues.**
+
+*A place where academic projects are preserved, explored, and extended across generations.*
 
 ![Java](https://img.shields.io/badge/Java-21-orange?logo=openjdk)
-![JavaFX](https://img.shields.io/badge/JavaFX-Desktop-blue)
+![JavaFX](https://img.shields.io/badge/JavaFX-Desktop-0078D7)
 ![Oracle](https://img.shields.io/badge/Database-Oracle-red?logo=oracle)
 ![Maven](https://img.shields.io/badge/Build-Maven-blue?logo=apachemaven)
 
@@ -15,62 +17,85 @@
 
 ---
 
-## About IMTIDAD
+## 🌍 About IMTIDAD
 
-Every year, universities produce remarkable student projects across different courses and graduation programs. Yet, many of these projects lose their value after submission or graduation, remaining scattered across personal devices, libraries, and academic archives.
+Every year, universities produce outstanding student projects across different courses and graduation programs. Yet, many of these projects lose their value after submission, remaining scattered across libraries, personal devices, and academic archives.
 
-**IMTIDAD (امتداد)** was created to address this challenge.
+**IMTIDAD (امتداد)** is a university knowledge platform designed to preserve, organize, and connect outstanding academic projects.
 
-IMTIDAD is a university knowledge platform, implemented as a JavaFX desktop application, designed to preserve, organize, and connect outstanding academic projects.
+Rather than treating projects as temporary academic assignments, IMTIDAD aims to transform them into a **growing knowledge repository** that future generations of students can explore, learn from, and build upon.
 
-It aims to transform student projects from isolated academic submissions into a **growing knowledge repository** that future generations can explore, learn from, and build upon.
+Students can discover ideas from previous cohorts, explore projects developed in earlier courses, understand the technologies used, and find opportunities to continue existing work.
 
-Through IMTIDAD, students can discover ideas developed by previous cohorts, explore projects from earlier course offerings, understand the technologies used, and identify opportunities to continue existing work.
+The platform also aims to build a **technical history of the university**, documenting how projects, technologies, ideas, and student contributions evolve over time.
 
-Beyond preservation, IMTIDAD seeks to build a **technical history of the university**, documenting how projects, ideas, technologies, and student contributions evolve over time.
-
-> **IMTIDAD is not just about storing projects. It is about preserving knowledge and extending its impact across academic generations.**
+> **IMTIDAD is more than a project archive — it is a bridge connecting academic knowledge across generations.**
 
 ---
 
-## Key Features
+## 🎯 The Mission
+
+**Turning academic projects from temporary submissions into lasting knowledge.**
+
+IMTIDAD seeks to:
+
+- Preserve valuable academic efforts.
+- Make previous student projects easier to discover.
+- Help students learn from earlier academic experiences.
+- Encourage the continuation and improvement of existing projects.
+- Document project ownership, technologies, and contributions.
+- Build a lasting record of academic innovation.
+
+---
+
+## ✨ Key Features
 
 | Feature | Description |
 |---------|-------------|
-| Academic Project Repository | Organize and preserve course and graduation projects. |
-| Project Discovery | Explore previous projects, ideas, technologies, and student contributions. |
-| Academic Review | Support project evaluation, feedback, approval, and publication workflows. |
-| Project Passport | Provide a structured digital profile containing each project's information, team, and resources. |
-| Project Continuation | Allow students to request the continuation or extension of previous projects. |
-| Project Lineage | Connect original projects with their extensions to preserve their development history. |
+| 🗂️ **Academic Repository** | Preserve and organize course and graduation projects. |
+| 🔎 **Project Discovery** | Explore previous projects, ideas, and technologies. |
+| 🎓 **Academic Review** | Manage project evaluation, feedback, and approval. |
+| 🪪 **Project Passport** | Display project details, contributors, and resources. |
+| 🌱 **Project Continuation** | Request to extend or improve an existing project. |
+| 🌳 **Project Lineage** | Connect original projects with their later developments. |
 
 ---
 
-## How IMTIDAD Works
+## 🔄 How IMTIDAD Works
 
-The application follows a structured academic workflow:
+IMTIDAD supports a structured academic project lifecycle:
 
-**Project Creation → Documentation → Academic Review → Publication → Discovery → Continuation**
+<div align="center">
 
-Students can document their projects and submit them for academic review.
+**📝 Create → 📋 Document → 🎓 Review → ✅ Approve → 📚 Publish → 🌱 Extend**
 
-Once approved and published, projects become part of the academic knowledge repository, where future students can discover them and propose extensions.
+</div>
 
-Approved continuations can be linked to their original projects, preserving the history of development and contributions.
+Students document their academic projects and submit them for review.
+
+Academic reviewers evaluate submitted projects, provide feedback, and determine whether they are ready for publication.
+
+Published projects become available for exploration, allowing future students to discover previous work and request its continuation.
+
+Project relationships help preserve the history of academic contributions and development.
 
 ---
 
-## Application Screenshots
+## 🖼️ Application Screenshots
 
-A preview of IMTIDAD's desktop application and its main workflows.
+Explore the desktop interface of IMTIDAD and its main workflows.
 
-### Main Dashboard
+### 🏠 Main Dashboard
 
-<p align="center">
-  <img src="screenshots/Untitled1.png" alt="IMTIDAD Main Dashboard" width="850">
-</p>
+The main workspace for exploring academic projects and accessing the application's features.
 
-### Academic Review & Project Continuation
+<div align="center">
+
+<img src="screenshots/dashboard.png" alt="IMTIDAD Main Dashboard" width="850">
+
+</div>
+
+### 🎓 Academic Review & 🌱 Project Continuation
 
 <table>
 <tr>
@@ -78,125 +103,157 @@ A preview of IMTIDAD's desktop application and its main workflows.
 
 **Academic Review**
 
-<img src="screenshots/lk.png" alt="Academic Review" width="420">
+<img src="screenshots/academic-review.png" alt="Academic Review" width="420">
 
 </td>
 <td align="center" width="50%">
 
 **Project Continuation**
 
-<img src="screenshots/s.png" alt="Project Continuation" width="420">
+<img src="screenshots/project-continuation.png" alt="Project Continuation" width="420">
 
 </td>
 </tr>
 </table>
 
-### Project Passport
+### 📝 Project Registration & 🪪 Project Passport
 
-<p align="center">
-  <img src="screenshots/DS.png" alt="Project Passport" width="800">
-</p>
+<table>
+<tr>
+<td align="center" width="50%">
+
+**Project Registration**
+
+<img src="screenshots/add-project.png" alt="Add New Project" width="420">
+
+</td>
+<td align="center" width="50%">
+
+**Project Passport**
+
+<img src="screenshots/project-details.png" alt="Project Details" width="420">
+
+</td>
+</tr>
+</table>
+
+### 💡 About IMTIDAD
+
+<div align="center">
+
+<img src="screenshots/about-imtidad.png" alt="About IMTIDAD" width="850">
+
+</div>
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
-| Java 21 | Core application development |
-| JavaFX & FXML | Desktop user interface |
-| CSS | Interface styling |
-| Oracle Database | Data storage and management |
-| JDBC | Database connectivity |
-| Maven | Dependency and build management |
+| ☕ **Java 21** | Core application development |
+| 🖥️ **JavaFX & FXML** | Desktop user interface |
+| 🎨 **CSS** | Interface styling |
+| 🗄️ **Oracle Database** | Data storage and management |
+| 🔗 **JDBC** | Database connectivity |
+| 📦 **Maven** | Dependency and build management |
 
-### Software Design
+### 🧩 Architecture & OOP
 
-IMTIDAD follows a layered architecture:
+IMTIDAD follows a layered software architecture:
 
 `JavaFX / FXML → Controllers → Services → Repositories → Oracle Database`
 
-The application also demonstrates fundamental Object-Oriented Programming principles, including:
+The application demonstrates key Object-Oriented Programming concepts:
 
 **Encapsulation · Abstraction · Inheritance · Polymorphism · Interfaces**
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
-### Requirements
+### 📋 Requirements
 
 - JDK 21
 - Apache Maven
 - Oracle Database
 
-### Installation
+### ⚙️ Installation
 
-Clone the repository:
+**1. Clone the repository:**
 
 ```bash
 git clone https://github.com/SarahAlnobiDev/IMTIDAD-Academic-Project-Platform.git
 ```
 
-Navigate to the project directory:
+**2. Navigate to the project directory:**
 
 ```bash
 cd IMTIDAD-Academic-Project-Platform
 ```
 
-Configure your Oracle Database connection using:
+**3. Configure the database:**
 
-`src/config.properties.example`
+Use `src/config.properties.example` as a template to create your local `src/config.properties` file.
 
-Create a local `src/config.properties` file with your database credentials.
+Set your Oracle Database connection information.
 
-Then build and run:
+**4. Build and run the application:**
 
 ```bash
 mvn clean compile
 mvn javafx:run
 ```
 
-> **Note:** Keep database credentials private. Do not commit your local `config.properties` file.
-
-For detailed information about the architecture, database, implementation, and functionality, see:
-
-**[Technical Documentation](IMTIDAD_DOCUMENTATION.md)**
+> 🔐 **Security Note:** Never commit your actual database credentials to GitHub.
 
 ---
 
-## Development Team
+## 📚 Technical Documentation
 
-**University of Science and Technology**  
+For more information about the system architecture, database design, implementation, and OOP concepts:
+
+📖 **[Explore the Technical Documentation](IMTIDAD_DOCUMENTATION.md)**
+
+---
+
+## 👩‍💻 Development Team
+
+**🏛️ University of Science and Technology**
+
 Faculty of Computing and Information Technology  
 Department of Software Engineering
 
 **Developed by:**
 
-- Sarah Alnobi — XZero
-- Marwa Jameel
-- Samira Al-Tabi
+- **Sarah Alnobi — XZero**
+- **Marwa Jameel**
+- **Samira Al-Tabi**
 
-**2026**
+📅 **2026**
 
 ---
 
-## Project Origins | MADA
+## 🌱 Project Origins | MADA
 
-IMTIDAD evolved from **MADA (مدى)**, an earlier Database Systems course project focused on designing and implementing the academic project knowledge repository using Oracle Database, SQL, and an Oracle APEX prototype.
+IMTIDAD evolved from **MADA (مدى)**, an earlier academic project developed for a Database Systems course.
 
-The concept was later extended into IMTIDAD, a Java-based desktop application developed using Object-Oriented Programming principles.
+MADA focused on designing and implementing a relational database for preserving university student projects using **Oracle Database and SQL**, alongside an initial **Oracle APEX prototype**.
 
-**[Explore the original MADA Database Project](https://github.com/SarahAlnobiDev/mada-database-system)**
+The concept was later developed into IMTIDAD, a Java-based desktop application applying Object-Oriented Programming principles.
+
+🔗 **[Explore MADA — Database Systems Project](https://github.com/SarahAlnobiDev/mada-database-system)**
 
 ---
 
 <div align="center">
 
-### IMTIDAD | امتداد
+### 🌟 IMTIDAD | امتداد
 
 **Preserving Projects. Connecting Generations. Extending Knowledge.**
 
-*Because the impact of a project goes beyond its submission.*
+*Because the impact of a project goes beyond submission.*
+
+**© 2026 — IMTIDAD Development Team**
 
 </div>
