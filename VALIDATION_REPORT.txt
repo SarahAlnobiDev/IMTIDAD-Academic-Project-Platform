@@ -1,0 +1,7 @@
+IMTIDAD Integrated Project - Validation
+=======================================
+- All FXML files were parsed successfully as XML.
+- All fx:id and onAction references in ReviewQueue, ProjectLineage, ProjectPassport and ProjectListView were cross-checked against their controllers.
+- Model, contract, DAO and service layers compiled successfully in an isolated Java syntax/type check (with lightweight JavaFX property stubs for the existing model properties).
+- Oracle schema now contains 18 CREATE TABLE statements including CONTINUATION_REQUEST_DETAIL.
+- Full desktop run requires JavaFX and Oracle JDBC on the target Windows/IntelliJ environment.
